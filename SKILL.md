@@ -1,31 +1,58 @@
 ---
 name: html-to-text
-version: 0.2.0
-description: >
-  Extract plain text from HTML files by stripping all tags, scripts, and formatting. HTML to plain text converter, web page text extractor, HTML tag stripper, markup remover, HTML text-only extractor, webpage plain text generator, HTML content to text, strip HTML tags, raw text from HTML, HTML cleanup to text, HTML转文本, 网页文字提取, HTML去标签, 纯文本提取, 网页转纯文本.
-
-  Use when asked to 'extract text from HTML', 'strip HTML tags and get text', 'convert HTML to plain text', 'get raw text from web page', 'remove all HTML formatting', 'pull plain text from HTML file'. Also handles: 'how do I get plain text from an HTML file?', 'is there a skill that strips HTML to text?', 'I want to extract just the text from a web page', 'can my agent convert HTML to text only?', 'I need text without any HTML tags'.
-
-  Solves the problem of HTML markup cluttering text content, inability to quickly extract readable text from web pages, difficulty feeding HTML content into text-only pipelines, and manual tag stripping being tedious and incomplete. Powered by MinerU for intelligent text extraction that handles nested tags, entities, and encoding. Removes all HTML tags, scripts, styles, and formatting while preserving readable text flow. Ideal for NLP pipelines, text analysis, data cleaning, content indexing, and plain text archival.
-tags:
-  - html
-  - text-extraction
-  - plain-text
-  - tag-stripper
-  - content-extraction
-  - mineru
-  - document-processing
-  - web-scraping
-  - data-cleaning
-  - nlp
-  - text-converter
-  - html-parser
+description: "HTML to Text - extract plain readable text from HTML files using MinerU. Output is Markdown (the closest plain-text format MinerU supports). Use for getting readable content from HTML."
+homepage: https://mineru.net
+metadata: {"openclaw": {"emoji": "📄", "requires": {"bins": ["mineru-open-api"], "env": ["MINERU_TOKEN"]}, "primaryEnv": "MINERU_TOKEN", "install": [{"id": "npm", "kind": "node", "package": "mineru-open-api", "bins": ["mineru-open-api"], "label": "Install via npm"}, {"id": "go", "kind": "go", "package": "github.com/opendatalab/MinerU-Ecosystem/cli/mineru-open-api", "bins": ["mineru-open-api"], "label": "Install via go install", "os": ["darwin", "linux"]}]}}
 ---
 
-# HTML To Text
+# HTML to Text
 
-Extract plain text from HTML files by stripping all tags and formatting using MinerU.
+Extract plain readable text from HTML files or web pages using MinerU. MinerU outputs Markdown as the closest format to plain text.
 
-## Usage
+## Install
 
-Use the mineru tool to extract plain text from HTML files. Provide the local HTML file path and receive clean, readable plain text with all HTML tags, scripts, styles, and formatting removed.
+```bash
+npm install -g mineru-open-api
+# or via Go (macOS/Linux):
+go install github.com/opendatalab/MinerU-Ecosystem/cli/mineru-open-api@latest
+```
+
+## Quick Start
+
+```bash
+# Extract text from a local HTML file (requires token)
+mineru-open-api extract page.html -o ./out/
+
+# Extract text from a web page (requires token)
+mineru-open-api crawl https://example.com/article
+
+# JSON output contains text fields (requires token)
+mineru-open-api extract page.html -f json -o ./out/
+```
+
+## Authentication
+
+Token required:
+
+```bash
+mineru-open-api auth             # Interactive token setup
+export MINERU_TOKEN="your-token" # Or via environment variable
+```
+
+Create token at: https://mineru.net/apiManage/token
+
+## Capabilities
+
+- Supported input: local .html file or web page URL
+- HTML requires `extract` or `crawl` (token required) — not supported by `flash-extract`
+- MinerU does not have a `-f text` option; Markdown is the closest plain-text output
+- For truly plain text: use `extract -f json` and read the text fields from JSON output
+- Language hint with `--language` (default: `ch`, use `en` for English)
+
+## Notes
+
+- MinerU has no `-f text` format; use Markdown output or `-f json` for text fields
+- HTML is NOT supported by `flash-extract`
+- Output goes to stdout by default; use `-o <dir>` to save to a file or directory
+- All progress/status messages go to stderr; document content goes to stdout
+- MinerU is open-source by OpenDataLab (Shanghai AI Lab): https://github.com/opendatalab/MinerU
