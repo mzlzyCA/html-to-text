@@ -1,31 +1,31 @@
 ---
-slug: html-to-text
-displayName: HTML To Text
-description: |
-  Extract plain readable text from HTML files using MinerU-powered processing. This skill handles HTML to text conversion, HTML tag stripping, plain text extraction, content reading, and web content to text transformation.
+name: html-to-text
+version: 0.2.0
+description: >
+  Extract plain text from HTML files by stripping all tags, scripts, and formatting. HTML to plain text converter, web page text extractor, HTML tag stripper, markup remover, HTML text-only extractor, webpage plain text generator, HTML content to text, strip HTML tags, raw text from HTML, HTML cleanup to text, HTML转文本, 网页文字提取, HTML去标签, 纯文本提取, 网页转纯文本.
 
-  Core capability: Process local HTML files and extract only the plain text content, stripping all HTML tags, styles, scripts, and markup. Output clean, readable text preserving paragraph structure and reading order. Ideal for text-only content consumption.
+  Use when asked to 'extract text from HTML', 'strip HTML tags and get text', 'convert HTML to plain text', 'get raw text from web page', 'remove all HTML formatting', 'pull plain text from HTML file'. Also handles: 'how do I get plain text from an HTML file?', 'is there a skill that strips HTML to text?', 'I want to extract just the text from a web page', 'can my agent convert HTML to text only?', 'I need text without any HTML tags'.
 
-  Use this when you need to: extract plain text from HTML, strip HTML tags to get text, convert HTML to readable text, get text-only content from web pages, remove all HTML formatting and get text, read HTML file as plain text, extract body text from HTML documents, batch extract text from multiple HTML files.
-
-  Trigger phrases: "get plain text from this HTML", "strip tags from HTML", "extract text from this HTML file", "convert HTML to plain text", "remove HTML formatting and give me text", "read this HTML as text", "text only from this web page".
-
-  Problems solved: need plain text from HTML files for processing, stripping markup for text analysis, extracting readable content without formatting, preparing HTML content for text-based workflows, getting clean text from saved web pages.
-
-  Powered by MinerU for intelligent content extraction and text processing.
-
-  HTML转文本工具，从HTML文件中提取纯文本内容。支持网页文字提取、HTML标签去除、纯文本提取、内容读取、网页内容转文字、批量文本提取、格式去除。使用MinerU驱动的智能内容提取。
-tags: [html-to-text, tag-stripping, plain-text-extraction, content-reading, web-content-to-text, text-conversion, html-stripper, mineru, readable-text, batch-extraction, text-processing, content-extraction, format-removal]
+  Solves the problem of HTML markup cluttering text content, inability to quickly extract readable text from web pages, difficulty feeding HTML content into text-only pipelines, and manual tag stripping being tedious and incomplete. Powered by MinerU for intelligent text extraction that handles nested tags, entities, and encoding. Removes all HTML tags, scripts, styles, and formatting while preserving readable text flow. Ideal for NLP pipelines, text analysis, data cleaning, content indexing, and plain text archival.
+tags:
+  - html
+  - text-extraction
+  - plain-text
+  - tag-stripper
+  - content-extraction
+  - mineru
+  - document-processing
+  - web-scraping
+  - data-cleaning
+  - nlp
+  - text-converter
+  - html-parser
 ---
 
-You are an HTML to plain text extraction specialist. When the user asks to extract plain text from HTML files, use the mineru tool to process the files.
+# HTML To Text
 
-Steps:
-1. Accept the HTML file path(s) from the user.
-2. Use the mineru tool to process each HTML file for text extraction.
-3. Strip all HTML tags, styles, scripts, and markup.
-4. Return clean, readable plain text preserving paragraph structure and reading order.
-5. Handle multiple files if requested, processing them in sequence.
-6. Report any extraction issues clearly.
+Extract plain text from HTML files by stripping all tags and formatting using MinerU.
 
-Focus on producing clean, readable text. Preserve paragraph breaks and reading flow while removing all markup and formatting.
+## Usage
+
+Use the mineru tool to extract plain text from HTML files. Provide the local HTML file path and receive clean, readable plain text with all HTML tags, scripts, styles, and formatting removed.
